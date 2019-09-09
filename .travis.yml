@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t kman4you/react-cicd -f Dockerfile.dev .
+script:
+  - docker run kman4you/react-cicd npm run test -- --coverage
